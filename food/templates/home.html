@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% for item in items %}
+<div class="row mt-5 mb-5">
+      <div class="col-md-4">
+          <img src='{{ item.image }}' width="350px" alt="" class="card">
+      </div>
+      <div class="col-md-5 d-grid align-items-center">
+          <ul class="list-group list-group-flush">
+               <li class="list-group-item">{{ item.name }}</li>
+               <li class="list-group-item"> {{ item.description }}</li>
+               <li class="list-group-item">{{ item.price }} TRY</li>
+              <li class="list-group-item"> {{ item.user }}</li>
+          </ul>
+      </div>
+      <div class="col-md-3 d-flex justify-content-center align-items-center">
+          <a href="{% url 'food:detail' item.id %}" class="btn btn-warning">DETAIL</a>
+      </div>
+</div>
+{% endfor %}
+
+{% endblock %}

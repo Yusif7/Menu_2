@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 mt-5">
+        <form method="POST">
+            {% csrf_token %}
+            <div>
+                <label for="id_name" class="form-label" >Name:</label>
+                <input type="text" class="form-control" name="name" maxlength="100" required="" id="id_name">
+            </div>
+            <div>
+                <label for="id_description" class="form-label" >Description:</label>
+                <input type="text" class="form-control" name="description" maxlength="200" required="" id="id_description">
+            </div>
+            <div>
+                <label for="id_price" class="form-label" >Price:</label>
+                <input type="number" class="form-control" name="price" step="0.01" required="" id="id_price">
+            </div>
+            <div>
+                <label for="id_image" class="form-label" >Image:</label>
+                <input type="text" class="form-control" name="image" value="https://livingstonbagel.com/wp-content/uploads/2016/11/food-placeholder.jpg" maxlength="500" required="" id="id_image">
+            </div>
+                <button type="submit" class="btn btn-warning mt-4">Save</button>
+        </form>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+
+{% endblock %}

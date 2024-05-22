@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Registration form</h1>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <form method="POST">
+            {% csrf_token %}
+            <div>
+                <label for="id_username" class="col-form-label" >Username:</label>
+                <div class="helptext form-text" id="id_username_helptext">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</div>
+                    <input type="text" class="form-control" name="username" maxlength="150" autofocus="" required="" aria-describedby="id_username_helptext" id="id_username">
+                </div>
+            <div>
+                <label for="id_email" class="col-form-label" >Email:</label>
+                <input type="email" class="form-control" name="email" maxlength="320" required="" id="id_email">
+            </div>
+            <div>
+                <label for="id_password1" class="col-form-label" >Password:</label>
+                <div class="helptext" id="id_password1_helptext">
+                    <ul>
+                        <li class="form-text">Your password can’t be too similar to your other personal information.</li>
+                        <li class="form-text">Your password must contain at least 8 characters.</li>
+                        <li class="form-text">Your password can’t be a commonly used password.</li>
+                        <li class="form-text"> Your password can’t be entirely numeric.</li>
+                    </ul>
+                </div>
+                <input type="password" class="form-control" name="password1" autocomplete="new-password" required="" aria-describedby="id_password1_helptext" id="id_password1">
+            </div>
+              <div>
+                <label for="id_password2" class="col-form-label" >Password confirmation:</label>
+                <div class="helptext form-text" id="id_password2_helptext">Enter the same password as before, for verification.</div>
+                <input type="password" class="form-control" name="password2" autocomplete="new-password" required="" aria-describedby="id_password2_helptext" id="id_password2">
+              </div>
+            <button type="submit" class="btn btn-warning mt-3">Submit</button>
+        </form>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+{% endblock %}
